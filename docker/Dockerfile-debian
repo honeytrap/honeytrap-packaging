@@ -1,0 +1,15 @@
+FROM golang:latest AS go
+
+FROM debian
+RUN apt update -y 
+RUN apt install -y debhelper git
+
+ENV GOPATH /go
+ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
+
+COPY --from=go /usr/local/go /usr/local/go
+COPY --from=go /usr/local/bin/go-wrapper /usr/local/bin/go-wrapper
+
+WORKDIR /build
+
+CMD /bin/sh ./build.sh

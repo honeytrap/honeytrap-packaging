@@ -1,0 +1,23 @@
+[Unit]
+Description=Honeytrap 
+Documentation=https://honeytrap.io
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_RAW
+
+User=honeytrap
+
+ExecStart=/usr/bin/honeytrap \
+        --data /var/lib/honeytrap \
+        --config /etc/honeytrap.toml
+
+StandardOutput=journal
+StandardError=inherit
+
+TimeoutStopSec=0
+
+[Install]
+WantedBy=multi-user.target

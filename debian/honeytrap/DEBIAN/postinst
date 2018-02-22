@@ -1,0 +1,5 @@
+#!/bin/bash
+adduser --system --no-create-home honeytrap
+
+chown -R honeytrap /var/lib/honeytrap
+chown -R honeytrap /var/log/honeytrap

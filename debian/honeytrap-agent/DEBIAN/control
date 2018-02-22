@@ -1,0 +1,8 @@
+Package: honeytrap-agent
+Version: 1.0.0
+Section: security
+Priority: optional
+Architecture: all
+Maintainer: Remco Verhoef <remco.verhoef@dutchsec.com>
+Description: Some short description
+ A much longer description that goes on for ages and ages and ages.

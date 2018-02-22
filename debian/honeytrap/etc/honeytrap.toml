@@ -1,0 +1,18 @@
+[listener]
+type="socket"
+
+[service.ssh-simulator]
+type="ssh-simulator"
+port="tcp/8022"
+credentials=["root:root", "root:password"]
+
+[channel.file]
+type="file"
+filename="/var/log/honeytrap/honeytrap.log"
+
+[[filter]]
+channel=["file"]
+
+[[logging]]
+output = "stdout"
+level = "debug"

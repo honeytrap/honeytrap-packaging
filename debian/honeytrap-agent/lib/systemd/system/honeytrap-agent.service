@@ -10,6 +10,7 @@ AmbientCapabilities=CAP_NET_BIND_SERVICE
 User=honeytrap-agent
 
 ExecStart=/usr/bin/honeytrap-agent \
+        --data /var/lib/honeytrap-agent \
         --config /etc/honeytrap-agent.toml
 
 StandardOutput=journal

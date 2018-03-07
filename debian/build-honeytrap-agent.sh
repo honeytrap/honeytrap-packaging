@@ -21,6 +21,6 @@ go build -a -ldflags "$LDFLAGS -extldflags \"-static\"" -o /go/bin/app
 cd /build
 cp /go/bin/app honeytrap-agent/usr/bin/honeytrap-agent
 
-cat honeytrap-agent/DEBIAN/control.template | sed -e s/#DATE#/$DATE/ | sed -e s/#COMMIT#/$COMMIT/ > honeytrap-agent/debian/control
+cat honeytrap-agent/DEBIAN/control.template | sed -e s/#DATE#/$DATE/ | sed -e s/#COMMIT#/$COMMIT/ > honeytrap-agent/DEBIAN/control
 
 dpkg-deb --build honeytrap-agent 

@@ -1,5 +1,8 @@
 #!/bin/bash
 adduser --system --no-create-home honeytrap-agent
 
+mkdir /var/lib/honeytrap-agent
+mkdir /var/log/honeytrap-agent
+
 chown -R honeytrap-agent /var/lib/honeytrap-agent
 chown -R honeytrap-agent /var/log/honeytrap-agent

@@ -8,15 +8,19 @@ cd $DEST
 git clone https://github.com/honeytrap/honeytrap-agent .
 
 COMMIT=$(git rev-parse --short HEAD)
-echo $COMMIT
-
 DATE=$(git log -1 --format=%cd --date=format:'%Y%m%d')
-echo $DATE
+
+echo "Building Honeytrap agent"
+echo "OS=$OS"
+echo "ARCH=$ARCH"
+echo "COMMIT=$COMMIT"
+echo "DATE=$DATE"
 
 LDFLAGS=$(go run scripts/gen-ldflags.go)
-go build -a -ldflags "$LDFLAGS -extldflags \"-static\"" -o /go/bin/app
+GOOS=$OS GOARCH=$ARCH go build -a -ldflags "$LDFLAGS -extldflags \"-static\"" -o /go/bin/app
 
 /go/bin/app --version
+file /go/bin/app
 
 cd /build
 cp /go/bin/app honeytrap-agent/usr/bin/honeytrap-agent

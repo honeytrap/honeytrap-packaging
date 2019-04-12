@@ -1,0 +1,5 @@
+#!/bin/bash
+adduser --system --no-create-home honeytrap-sensor
+
+chown -R honeytrap-sensor /var/lib/honeytrap-sensor
+chown -R honeytrap-sensor /var/log/honeytrap-sensor

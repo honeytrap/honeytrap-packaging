@@ -1,0 +1,22 @@
+[Unit]
+Description=Honeytrap Sensor
+Documentation=https://docs.honeytrap.io/docs/concepts/framework/honeytrap-sensor/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+User=honeytrap-sensor
+
+ExecStart=/usr/bin/honeytrap-sensor \
+        --data /var/lib/honeytrap-sensor \
+        --config /etc/honeytrap-sensor.toml
+
+StandardOutput=journal
+StandardError=inherit
+
+TimeoutStopSec=0
+
+[Install]
+WantedBy=multi-user.target

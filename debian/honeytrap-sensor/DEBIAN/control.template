@@ -1,0 +1,8 @@
+Package: honeytrap-sensor
+Version: 0.0~git#DATE#.0.#COMMIT#-1
+Section: security
+Priority: optional
+Architecture: all
+Maintainer: Brandon van Houten <brandon.vanhouten@dutchsec.com>
+Description: Honeytrap sensor
+ A low interaction honeypot.
